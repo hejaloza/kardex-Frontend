@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html ng-app='miapp' ng-controller="log as ctrlLog">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema Control de Kardex</title>
+
+    <link href="js/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/alertify.css" rel="stylesheet">
+
+    <script src="js/jquery-3.1.1.js" type="application/javascript"></script>
+    <script src="bootstrap/js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="js/jquery-ui/jquery-ui.js" type="application/javascript"></script>
+
+    <script src="bower_components/angular/angular.js" type="application/javascript"></script>
+    <script src="bower_components/angular-route/angular-route.js" type="application/javascript"></script>
+    <script src="bower_components/angular-jwt/dist/angular-jwt.js" type="application/javascript"></script>
+    <script src="bower_components/a0-angular-storage/dist/angular-storage.js" type="application/javascript"></script>
+    <script src="js/alertify.js" type="application/javascript"></script>
+    <script src="js/angular_script/kardex_services.js" type="application/javascript"></script>
+    <script src="js/angular_script/kardex_controllers.js" type="application/javascript"></script>
+    <script src="js/angular_script/kardex_routes.js" type="application/javascript"></script>
+    <script src="js/kardex_script.js" type="application/javascript"></script>
+
+
+</head>
+
+<body>
+<header>
+    <div id="header_top">
+        <div class="container">
+            <div class="row">
+                <div class="hidden-xs col-md-3 ">
+                    <h3>Contacto | Ayuda | Acerca de</h3>
+                </div>
+                <div class="col-xs-12 col-md-9 redes_sociales">
+                    <p>
+                        <a href="#/">
+                            <img alt="Facebook" src="images/facebook.png" height="26" width="26">
+                        </a>
+                        <a href="#/">
+                            <img alt="Twitter" src="images/twitter.png" height="26" width="26">
+                        </a>
+                        <a href="#/">
+                            <img alt="Youtube" src="images/youtube.png" height="26" width="26">
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="header_bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <figure>
+                        <a ng-href="#/"> <img class="img-responsive logo_padel" src="images/logo_kardex.png" alt="UPM"/></a>
+                    </figure>
+                </div>
+                <div class="col-xs-6 col-md-9">
+                    <nav class="navbar navbar-default">
+                        <div class='navbar-header'>
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#elmenu">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li ng-if="ctrlLog.auth">
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Administración <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a ng-href="#/">Usuarios</a></li>
+                                            <li><a ng-href="#/">Unidad-Medida</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li ng-if="ctrlLog.auth">
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Producto <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a ng-href="#/">Consultar</a></li>
+                                            <li><a ng-href="#/prueba">Nuevo</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li ng-if="ctrlLog.auth">
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Movimientos <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a ng-href="#/orden-ingreso">Orden Ingreso</a></li>
+                                            <li><a ng-href="#/solicitar-producto">Solicitar Producto</a></li>
+                                            <li><a ng-href="#/orden-egreso">Orden Egreso</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a ng-href="#/" class="user_log"><span title="Inicio" class="glyphicon glyphicon-home"></span></a></li>
+                                <li ng-if="!ctrlLog.auth"><a ng-href="#/login" class="user_log"><span title="Ingresar" class="glyphicon glyphicon-log-in"></span></a></li>
+                                <li ng-if="ctrlLog.auth"><a href="javascript: void(0)" ng-click="ctrlLog.logout()" class="user_log"><span title="Salir" class="glyphicon glyphicon-log-out"></span></a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main ng-view>
+
+
+</main>
+
+
+<footer>
+
+    <div id="footer_bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-md-12 contenido_footer">
+                    <h3>Derechos Reservados © 2017</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

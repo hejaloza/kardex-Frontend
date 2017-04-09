@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <fieldset>
+                <legend>Nuevo Producto</legend>
+                <form class="form-horizontal" name="formNewProduct" ng-submit="CtrlProd.addProduct()" ng-init="CtrlProd.init()">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label col-md-3" for="prod_codigo">Código:</label>
+                                <div class="col-md-9">
+                                    <input ng-model="CtrlProd.product.prod_codigo" type="text" class="form-control" id="prod_codigo" placeholder="Código de Producto" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-3" for="prod_nombre">Producto:</label>
+                                <div class="col-md-9">
+                                    <input ng-model="CtrlProd.product.prod_nombre" type="text" class="form-control" id="prod_nombre" placeholder="Nombre de Producto" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="control-label col-md-3" for="prod_fecha">Fecha:</label>
+                                <div class="col-md-9">
+                                    <input ng-model="CtrlProd.product.prod_fecha" type="datetime" class="form-control" id="prod_fecha" placeholder="Fecha" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    <textarea ng-model="CtrlProd.product.prod_detalle" class="form-control" rows="5" id="prod_detalle" placeholder="Ingrese Detalle de Producto" required="required"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Categoria:</label>
+                                <div class="col-md-8">
+                                    <select  class="form-control" name='prod_categoria' ng-model="CtrlProd.product.idcategoriaSeleccionada"
+                                             ng-options="c.id as c.nombre for c in CtrlProd.categories" required>
+                                        <option value="">Seleccionar</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Unidad:</label>
+                                <div class="col-md-8">
+                                    <select class="form-control" name='prod_unidad' ng-model="CtrlProd.product.idunidadSeleccionada"
+                                            ng-options="u.id as u.nombre for u in CtrlProd.units" required>
+                                        <option value="">Seleccionar</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label col-md-4" for="prod_estado">Estado:</label>
+                                <div class="col-md-8">
+                                    <input ng-model="CtrlProd.product.prod_estado" type="text"  class="form-control" id="prod_estado" readonly >
+                                </div>
+                            </div>
+                        </div>
+                    </div><br><br>
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-5">
+                            <button ng-disabled="CtrlProd.loading" type="submit" class="btn btn-default" id="registrar">Guardar</button>
+                        </div>
+                        <div class="col-md-5">
+                            <img ng-if="CtrlProd.loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                        </div>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+</div>
+

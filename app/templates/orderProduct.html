@@ -1,0 +1,70 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <fieldset>
+                <legend>Solicitar Producto</legend>
+                <form class="form-horizontal" name="formSolicitudProducto" ng-submit="CtrlIngreso.addOrdenIngreso()" ng-init="CtrlIngreso.init()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-2" for="in_factura">Estado:</label>
+                                <div class="col-md-6">
+                                    <input ng-model="CtrlIngreso.solicitud.in_factura" type="text" class="form-control" id="in_factura" placeholder="Estado" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label col-md-7" for="in_fecha">Fecha:</label>
+                                <div class="col-md-5">
+                                    <input ng-model="CtrlIngreso.ingreso.in_fecha" type="datetime" class="form-control" id="in_fecha" placeholder="Fecha" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Producto:</label>
+                                <div class="col-md-9">
+                                    <select  class="form-control" name='in_producto' ng-model="CtrlIngreso.ingreso.idproductoSeleccionado"
+                                             ng-options="p.id as p.nombre for p in CtrlIngreso.productos" required>
+                                        <option value="">Seleccionar</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Localidad:</label>
+                                <div class="col-md-9">
+                                    <select  class="form-control" name='in_proveedor' ng-model="CtrlIngreso.ingreso.idproveedorSeleccionado"
+                                             ng-options="pr.id as pr.nombre for pr in CtrlIngreso.proveedores" required>
+                                        <option value="">Seleccionar</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="control-label col-md-3" for="in_cantidad">Cantidad:</label>
+                                <div class="col-md-9">
+                                    <input ng-model="CtrlIngreso.ingreso.in_cantidad" type="input" class="form-control" id="in_cantidad" placeholder="Cantidad">
+                                </div>
+                            </div>
+                        </div>
+                    </div><br><br>
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-5">
+                            <button ng-disabled="CtrlProd.loading" type="submit" class="btn btn-default" id="registrar">Guardar</button>
+                        </div>
+                        <div class="col-md-5">
+                            <img ng-if="CtrlProd.loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                        </div>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+    </div>
+</div>
+
