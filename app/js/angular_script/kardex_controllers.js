@@ -18,7 +18,7 @@ appKardex.controller("CtrlProduct", ['$http', "autenticar","jwtHelper","Alertify
                         self.categories.push({"id": item['ca_id_categoria'], "nombre": item['ca_descripcion']});
                     });
                 }
-            })
+            });
 
 
         self.urlGetUnits = "http://localhost/apiKardex/web/app_dev.php/api/measures";
@@ -32,7 +32,7 @@ appKardex.controller("CtrlProduct", ['$http', "autenticar","jwtHelper","Alertify
                 }
             })
 
-    }
+    };
 
 
     self.addProduct = function () {
@@ -58,7 +58,7 @@ appKardex.controller("CtrlProduct", ['$http', "autenticar","jwtHelper","Alertify
                 method: "POST",
                 url: "http://localhost/apiKardex/web/app_dev.php/api/products",
                 data: JSON.stringify(self.datos)
-            }
+            };
             $http(config)
                 .then(function (response) {
                     if (response.status == 201) {
@@ -99,7 +99,7 @@ appKardex.controller("CtrlEntryOrder", ['$http', "autenticar","jwtHelper","Alert
                         self.products.push({"id": item['prod_id_producto'], "nombre": item['prod_nombre']});
                     });
                 }
-            })
+            });
 
         self.urlGetProviders = "http://localhost/apiKardex/web/app_dev.php/api/providers";
         $http.get(self.urlGetProviders, {})
@@ -111,7 +111,7 @@ appKardex.controller("CtrlEntryOrder", ['$http', "autenticar","jwtHelper","Alert
                     });
                 }
             })
-    }
+    };
 
     self.addEntryOrder = function () {
         if(autenticar.comprobarToken()){
@@ -133,7 +133,7 @@ appKardex.controller("CtrlEntryOrder", ['$http', "autenticar","jwtHelper","Alert
                 method: "POST",
                 url: "http://localhost/apiKardex/web/app_dev.php/api/entryOrders",
                 data: JSON.stringify(self.information)
-            }
+            };
             $http(config)
                 .then(function (response) {
                     if (response.status == 201) {
@@ -190,7 +190,7 @@ appKardex.controller("log", ['$http', "autenticar", function ($http, autenticar)
             method: "POST",
             url: "http://localhost/apiKardex/web/app_dev.php/api/token-authentication",
             data: JSON.stringify(self.datos)
-        }
+        };
         $http(config)
             .then(function (response) {
                 self.loading=false;
@@ -205,7 +205,7 @@ appKardex.controller("log", ['$http', "autenticar", function ($http, autenticar)
                 }
             }, function () {
             });
-    }
+    };
 
 
     self.logout = function () {
